@@ -1,0 +1,156 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 10px;
+}
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: 2px solid rgb(191, 191, 191);
+    border-radius: 1px;
+    transition: border-color 0.3s
+}
+
+.cell.flip {
+    animation: flip 600ms forwards;
+}
+.cell.pop {
+    animation: pop 0.3s;
+    border-color: rgb(130, 130, 130);
+}
+.correct {
+    background-color:#6ca965;
+    border: 1px solid #6ca965;
+    color: white;
+}
+.wrongPlace {
+    background-color: #c8b653;
+    border: 1px solid #c8b653;
+    color: white;
+}
+.notInWord {
+    background-color: #787c7f;
+    border: 1px solid #787c7f;
+    color: white;
+}
+#keyboard {
+    margin-top: 20px;
+}
+#keyboard div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+#keyboard button {
+    margin: 0 2px;
+    padding: 5px 10px;
+    font-size: 21px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid #d4d4d4;
+    cursor: pointer;
+    height: 50px;
+    row-gap: 4px;
+    border-radius: 5px;
+}
+#keyboard div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px; /* Add a margin between rows */
+}
+#keyboard button:hover {
+    background-color: #e2e2e2;
+}
+#keyboard button#ENTER {
+    font-size: 12px;
+}
+#keyboard button#⌫ {
+    font-size: 14px;
+}
+
+#message {
+    position: absolute; 
+    top: calc(10% - 30px); 
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    padding: 10px;
+    height: auto;
+    width: auto; 
+    color: white;
+    font-size: 28px; 
+    text-align: center;
+    margin-top: 10px; 
+    display: none;
+    z-index: 1;
+}
+#restartButton {
+    margin-top: 20px; 
+    padding: 10px 20px; 
+    font-size: 18px; 
+    background-color: #989898; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#restartButton:hover {
+    background-color:  #5f5f5f; 
+}
+
+@keyframes flip {
+    0% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+}
+
+@keyframes pop {
+    0% {
+      transform: scale(1);
+    
+    }
+    50% {
+      transform: scale(1.1);
+      
+    }
+    100% {
+
+      transform: scale(1);
+      
+    }
+  }
+
+@media (max-width: 600px) {
+    .cell {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
